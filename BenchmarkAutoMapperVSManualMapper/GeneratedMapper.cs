@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BenchmarkAutoMapperVSManualMapper
 {
@@ -18,6 +15,18 @@ namespace BenchmarkAutoMapperVSManualMapper
                 IsActive = inputElement.IsActive,
                 TextData = inputElement.TextData
             }).ToList();
-        }       
+        }
+
+        public static SampleObject Map(this SampleObjectDto input)
+        {
+            return new SampleObject
+            {
+                Id = input.Id,
+                Index = input.Index,
+                Guid = input.Guid,
+                IsActive = input.IsActive,
+                TextData = input.TextData
+            };
+        }
     }
 }
